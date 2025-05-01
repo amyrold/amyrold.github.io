@@ -1,8 +1,40 @@
 <div class="home-intro">
-    <div class="jumbo">{{site.heading}} </div>
-    <div class="home-sub-text"> <h3>
-        Jekyll Garden is a markdown friendly theme lets you publish your Obsidian vault (or a subset of it) as a Jekyll static website. 
-        Check out the <a href="{{'/notes' | relative_url}}"> demo </a>, <a href="{{'/post/features' | relative_url}}"> features </a> and <a href="{{'/post/how-to' | relative_url}}"> how to</a>.
-        </h3> 
-</div> </div>
+    <div class="jumbo">Aaron Myrold's Digital Garden</div>
+    <div class="home-sub-text">
+        <h3>
+            Welcome to my digital garden and portfolio. This site contains my <a href="/notes">notes</a>, <a href="/portfolio">projects</a>, and <a href="/about">more about me</a>.
+        </h3>
+    </div>
+</div>
 
+<div class="home-sections">
+    <div class="home-section">
+        <h2>Latest Notes</h2>
+        <div class="feed-grid">
+            {% assign recent_notes = site.notes | where_exp: "item", "item.path contains 'Public'" | sort: "date" | reverse | limit: 3 %}
+            {% for note in recent_notes %}
+                <div class="feed-item">
+                    <h3><a href="{{ note.url }}">{{ note.title }}</a></h3>
+                    <p>{{ note.excerpt | strip_html | truncate: 120 }}</p>
+                    <a href="{{ note.url }}" class="read-more">Read more →</a>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="/notes" class="view-all">View all notes →</a>
+    </div>
+
+    <div class="home-section">
+        <h2>Featured Projects</h2>
+        <div class="feed-grid">
+            {% assign featured_projects = site.projects | where: "featured", true | sort: "date" | reverse | limit: 2 %}
+            {% for project in featured_projects %}
+                <div class="feed-item">
+                    <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+                    <p>{{ project.excerpt | strip_html | truncate: 120 }}</p>
+                    <a href="{{ project.url }}" class="read-more">View project →</a>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="/portfolio" class="view-all">View all projects →</a>
+    </div>
+</div>

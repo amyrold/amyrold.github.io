@@ -1,0 +1,144 @@
+---
+layout: Stylesheet
+---
+
+/* Portfolio-specific styles that integrate with Jekyll Garden */
+
+/* Project Card Styling */
+.project-card {
+  background-color: var(--color-bg-sub);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid var(--color-border-light);
+}
+
+.project-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Featured Projects */
+.featured-project {
+  background-color: var(--color-bg-sub);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--color-text-link);
+  border-radius: 5px;
+}
+
+/* Project Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tag {
+  padding: 0.3rem 0.8rem;
+  background-color: var(--color-bg-main);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--color-text-main);
+}
+
+/* Project Links */
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.project-links a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-bg-main);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--color-text-main);
+}
+
+.project-links a svg {
+  margin-right: 0.5rem;
+}
+
+/* README Section */
+.readme-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.loading, .error {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--color-bg-main);
+  border-radius: 5px;
+}
+
+/* Home Sections */
+.home-sections {
+  margin-top: 3rem;
+}
+
+.home-section {
+  margin-bottom: 3rem;
+}
+
+.home-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.view-all {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+
+/* Feed Grid for Projects and Notes */
+.feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feed-item {
+  background-color: var(--color-bg-sub);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid var(--color-border-light);
+}
+
+.feed-item:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feed-item h2, .feed-item h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.feed-item .read-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--color-text-link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .feed-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-links {
+    flex-direction: column;
+  }
+}
