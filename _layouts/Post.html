@@ -7,15 +7,12 @@
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Aaron Myrold" property="og:site_name" />
-    <meta
-        content="Portfolio and Digital Garden"
-        property="og:description">
+    <meta content="Portfolio and Digital Garden" property="og:description">
     <meta content="{{ site.url }}/about/" property="article:author">
     <meta property="og:image" content="../assets/img/OGImg.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
     {%- if page.title -%}
     <meta content="{{ page.title }}" property="og:title">
     <meta content="article" property="og:type">
@@ -60,29 +57,29 @@
             </div>
             {%- endif -%}
 
-            <!--- Notes Feed Layout-->
+            <!--- Notes/Cards Feed Layout (Digital Garden & Portfolio) -->
             {%- if page.feedformat -%}
-            <div class="column is-6-widescreen is-8-desktop is-8-tablet is-12-mobile">
-                <h5 class="meta-title"><a href="/">← Home</a></h5>
-                    <div class="jumbo">{{page.title}}</div>
-                    {%- include Content.html -%}
-                    {%- include Feed.html -%}
+            <div class="column is-8-widescreen is-8-desktop is-8-tablet is-12-mobile">
+                <h5 class="meta-title"><a href="/">← HOME</a></h5>
+                <div class="jumbo">{{page.title}}</div>
+                {%- include Content.html -%}
+                {%- include Feed.html -%}
             </div>
             {%- endif -%}
 
             <!--- Notes Layout-->
             {%- if page.content-type == "notes" -%}
             <div class="column is-5-widescreen is-6-desktop is-8-tablet is-12-mobile">
-                    <div class="note-page-section">
-                        <div>
-                            {%- if site.preferences.homepage.enabled -%}
-                            <a onclick="window.history.back();">
-                            {%- else -%}
-                            <a onclick="window.location.assign('/');">
-                            {%- endif -%}
-                                    <h5 class="meta-title">← BACK</h5>
-                            </a>
-                        </div>
+                <div class="note-page-section">
+                    <div>
+                        {%- if site.preferences.homepage.enabled -%}
+                        <a onclick="window.history.back();">
+                        {%- else -%}
+                        <a onclick="window.location.assign('/');">
+                        {%- endif -%}
+                            <h5 class="meta-title">← BACK</h5>
+                        </a>
+                    </div>
                     <!--- List type Note Layout-->
                     {%- if page.format == "list" -%}
                     <style>
@@ -94,7 +91,7 @@
                     <h1>{{page.title}}</h1>
                     {%- include Content.html -%}
                     {%- include Backlinks.html -%}
-                    </div>
+                </div>
             </div>
             {%- endif -%}
 
@@ -103,14 +100,14 @@
             <div class="column is-6-widescreen is-8-desktop is-8-tablet is-12-mobile">
                 <h5 class="meta-title"><a href="/">← Home</a></h5>
                 <div class="jumbo">{{page.title}}</div>
-                    {%- include Content.html -%}
-                    {% for post in site.posts %}
-                        <div class="list-feed"> 
-                        <a href="{{ site.baseurl }}{{post.url}}" style="text-decoration: none;display: flex;justify-content: space-between;flex-direction: row;width: 100%;">
-                            <div class="writinglist-title">{{post.title }}</div>
-                        </a>
-                        </div>
-                    {%- endfor -%}
+                {%- include Content.html -%}
+                {% for post in site.posts %}
+                    <div class="list-feed"> 
+                    <a href="{{ site.baseurl }}{{post.url}}" style="text-decoration: none;display: flex;justify-content: space-between;flex-direction: row;width: 100%;">
+                        <div class="writinglist-title">{{post.title }}</div>
+                    </a>
+                    </div>
+                {%- endfor -%}
             </div> 
             {%- endif -%}
 
@@ -124,80 +121,104 @@
                         {%- else -%}
                         <a onclick="window.location.assign('/');">
                         {%- endif -%}
-                                <h5 class="meta-title">← BACK</h5>
+                            <h5 class="meta-title">← BACK</h5>
                         </a>
                     </div>
-                <h1>{{page.title}}</h1>
-                {%- include Content.html -%}
-                {%- include Backlinks.html -%}
+                    <h1>{{page.title}}</h1>
+                    {%- include Content.html -%}
+                    {%- include Backlinks.html -%}
                 </div>
-            </div>
-            {%- endif -%}
-
-            <!--- Portfolio Page Layout -->
-            {%- if page.permalink == "/portfolio" -%}
-            <div class="column is-8-widescreen is-8-desktop is-8-tablet is-12-mobile">
-                <h5 class="meta-title"><a href="/">← Home</a></h5>
-                <div class="jumbo">{{page.title}}</div>
-                {%- include Content.html -%}
             </div>
             {%- endif -%}
 
             <!--- Project Layout -->
             {%- if page.content-type == "project" -%}
-            <div class="column is-5-widescreen is-6-desktop is-8-tablet is-12-mobile">
+            <div class="column is-8-widescreen is-8-desktop is-8-tablet is-12-mobile">
                 <div class="note-page-section">
-                    <div>
-                        <a href="/portfolio/" class="home-btn">
-                            <h5 class="meta-title">← PORTFOLIO</h5>
+                    <h5 class="meta-title"><a href="/portfolio">← PORTFOLIO</a></h5>
+                    <h1>{{page.title}}</h1>
+                    
+                    <div class="project-links">
+                        {% if page.github_repo %}
+                        <a href="https://github.com/{{ page.github_repo }}" class="github-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            View on GitHub
                         </a>
+                        {% endif %}
+                        
+                        {% if page.demo_url %}
+                        <a href="{{ page.demo_url }}" class="demo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Live Demo
+                        </a>
+                        {% endif %}
                     </div>
-                <h1>{{page.title}}</h1>
-                {%- include Content.html -%}
-                
-                {% if page.github_repo %}
-                <div class="readme-section">
-                    <h2>Project README</h2>
-                    <div class="github-readme" id="readme-content">
-                      <div class="loading">Loading README from GitHub...</div>
+                    
+                    {% if page.tags %}
+                    <div class="project-tags">
+                        {% for tag in page.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
                     </div>
-                </div>
+                    {% endif %}
+                    
+                    <div class="project-content">
+                        {%- include Content.html -%}
+                    </div>
+                    
+                    {% if page.github_repo %}
+                    <div class="readme-section">
+                        <h2>Project README</h2>
+                        <div class="github-readme" id="readme-content">
+                            <div class="loading">Loading README from GitHub...</div>
+                        </div>
+                    </div>
 
-                <script>
-                    // Fetch and display README from GitHub
-                    (function() {
-                      const repo = "{{ page.github_repo }}";
-                      const readmeContainer = document.getElementById('readme-content');
-                      
-                      fetch(`https://raw.githubusercontent.com/${repo}/main/README.md`)
-                        .then(response => {
-                          if (!response.ok) {
-                            return fetch(`https://raw.githubusercontent.com/${repo}/master/README.md`);
-                          }
-                          return response;
-                        })
-                        .then(response => {
-                          if (!response.ok) {
-                            throw new Error('README not found');
-                          }
-                          return response.text();
-                        })
-                        .then(text => {
-                          // We need to load a Markdown parser
-                          const scriptTag = document.createElement('script');
-                          scriptTag.src = 'https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js';
-                          scriptTag.onload = function() {
-                            const converter = new showdown.Converter();
-                            readmeContainer.innerHTML = converter.makeHtml(text);
-                          };
-                          document.head.appendChild(scriptTag);
-                        })
-                        .catch(error => {
-                          readmeContainer.innerHTML = `<div class="error">Could not load README: ${error.message}. <a href="https://github.com/${repo}" target="_blank">View on GitHub</a> instead.</div>`;
-                        });
-                    })();
-                </script>
-                {% endif %}
+                    <script>
+                        // Fetch and display README from GitHub
+                        (function() {
+                            const repo = "{{ page.github_repo }}";
+                            const readmeContainer = document.getElementById('readme-content');
+                            
+                            fetch(`https://raw.githubusercontent.com/${repo}/main/README.md`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        return fetch(`https://raw.githubusercontent.com/${repo}/master/README.md`);
+                                    }
+                                    return response;
+                                })
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('README not found');
+                                    }
+                                    return response.text();
+                                })
+                                .then(text => {
+                                    // We need to load a Markdown parser
+                                    const scriptTag = document.createElement('script');
+                                    scriptTag.src = 'https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js';
+                                    scriptTag.onload = function() {
+                                        const converter = new showdown.Converter();
+                                        readmeContainer.innerHTML = converter.makeHtml(text);
+                                    };
+                                    document.head.appendChild(scriptTag);
+                                })
+                                .catch(error => {
+                                    readmeContainer.innerHTML = `<div class="error">Could not load README: ${error.message}. <a href="https://github.com/${repo}" target="_blank">View on GitHub</a> instead.</div>`;
+                                });
+                        })();
+                    </script>
+                    {% endif %}
+                    
+                    <div class="project-navigation">
+                        <a href="/portfolio" class="back-to-portfolio">Back to Portfolio</a>
+                    </div>
                 </div>
             </div>
             {%- endif -%}
@@ -205,9 +226,9 @@
             <!--- Static Page Layout-->
             {%- if page.content-type == "static" -%}
             <div class="column is-5-widescreen is-6-desktop is-8-tablet is-12-mobile">
-                        <div class="jumbo">{{page.title}}</div>                        
-                        {%- include Content.html -%}
-                </div>
+                <div class="jumbo">{{page.title}}</div>                        
+                {%- include Content.html -%}
+            </div>
             {%- endif -%}
         </div>
     </section>   

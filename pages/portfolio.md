@@ -18,7 +18,7 @@ A collection of my projects with detailed descriptions and GitHub integration.
 {% for project in featured_projects %}
   <div class="portfolio-item" data-searchable="{{ project.title }} {{ project.tags | join: ' ' }} {{ project.content | strip_html }}">
     <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-    <p>{{ project.excerpt | strip_html | truncate: 200 }}</p>
+    <p>{{ project.excerpt | strip_html | truncate: 120 }}</p>
     
     {% if project.tags %}
     <div class="project-tags">
@@ -40,7 +40,7 @@ A collection of my projects with detailed descriptions and GitHub integration.
 {% for project in regular_projects %}
   <div class="portfolio-item" data-searchable="{{ project.title }} {{ project.tags | join: ' ' }} {{ project.content | strip_html }}">
     <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-    <p>{{ project.excerpt | strip_html | truncate: 150 }}</p>
+    <p>{{ project.excerpt | strip_html | truncate: 120 }}</p>
     
     {% if project.tags %}
     <div class="project-tags">

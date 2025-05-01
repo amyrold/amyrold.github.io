@@ -1,4 +1,4 @@
-/* Consolidated Portfolio Styles */
+/* Comprehensive Portfolio Styles */
 
 /* Project Grid Layout */
 .portfolio-grid {
@@ -38,6 +38,8 @@
 
 .portfolio-item p {
   flex-grow: 1;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .portfolio-item .read-more {
@@ -64,19 +66,16 @@
   color: var(--color-text-main);
 }
 
-/* Project Page Specific Styles */
-.project {
+/* Project Page */
+.project-content {
   margin: 2rem 0;
-}
-
-.project .jumbo {
-  margin-bottom: 1rem;
 }
 
 .project-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .project-links a {
@@ -87,6 +86,11 @@
   border-radius: 4px;
   text-decoration: none;
   color: var(--color-text-main);
+  transition: background-color 0.2s ease;
+}
+
+.project-links a:hover {
+  background-color: var(--color-border-light);
 }
 
 .project-links a svg {
@@ -102,7 +106,7 @@
 
 .github-readme {
   background-color: var(--color-bg-main);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 8px;
 }
 
@@ -113,7 +117,7 @@
   border-radius: 5px;
 }
 
-/* Search Box Styling */
+/* Search Container */
 .search-container {
   margin-bottom: 2rem;
 }
@@ -128,28 +132,37 @@
   font-size: 1rem;
 }
 
-/* Home Button */
-.home-btn {
-  display: inline-block;
-  margin-bottom: 0.5rem;
-  color: var(--color-text-link);
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
 /* Project Navigation */
 .project-navigation {
-  margin-top: 2rem;
-  padding-top: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--color-border-light);
   text-align: center;
 }
 
 .back-to-portfolio {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   background-color: var(--color-bg-main);
   border-radius: 4px;
   text-decoration: none;
   color: var(--color-text-link);
+  transition: background-color 0.2s ease;
+}
+
+.back-to-portfolio:hover {
+  background-color: var(--color-border-light);
+}
+
+/* Note page section for project pages */
+.note-page-section {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fix for the content grid on portfolio page */
+.columns.is-centered {
+  justify-content: center !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
