@@ -1,30 +1,51 @@
----
-layout: Stylesheet
----
+/* Consolidated Portfolio Styles */
 
-/* Portfolio-specific styles that integrate with Jekyll Garden */
+/* Project Grid Layout */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
 
-/* Project Card Styling */
-.project-card {
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+/* Project Cards */
+.portfolio-item {
   background-color: var(--color-bg-sub);
   border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 2rem;
   transition: box-shadow 0.3s ease;
   border: 1px solid var(--color-border-light);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.project-card:hover {
+.portfolio-item:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Featured Projects */
-.featured-project {
-  background-color: var(--color-bg-sub);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border-left: 3px solid var(--color-text-link);
-  border-radius: 5px;
+.portfolio-item h2 {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 1.4rem;
+}
+
+.portfolio-item p {
+  flex-grow: 1;
+}
+
+.portfolio-item .read-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--color-text-link);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 /* Project Tags */
@@ -35,7 +56,7 @@ layout: Stylesheet
   margin: 1rem 0;
 }
 
-.tag {
+.project-tags .tag {
   padding: 0.3rem 0.8rem;
   background-color: var(--color-bg-main);
   border-radius: 20px;
@@ -43,7 +64,15 @@ layout: Stylesheet
   color: var(--color-text-main);
 }
 
-/* Project Links */
+/* Project Page Specific Styles */
+.project {
+  margin: 2rem 0;
+}
+
+.project .jumbo {
+  margin-bottom: 1rem;
+}
+
 .project-links {
   display: flex;
   gap: 1rem;
@@ -64,11 +93,17 @@ layout: Stylesheet
   margin-right: 0.5rem;
 }
 
-/* README Section */
+/* GitHub README Section */
 .readme-section {
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--color-border-light);
+}
+
+.github-readme {
+  background-color: var(--color-bg-main);
+  padding: 2rem;
+  border-radius: 8px;
 }
 
 .loading, .error {
@@ -78,67 +113,43 @@ layout: Stylesheet
   border-radius: 5px;
 }
 
-/* Home Sections */
-.home-sections {
-  margin-top: 3rem;
+/* Search Box Styling */
+.search-container {
+  margin-bottom: 2rem;
 }
 
-.home-section {
-  margin-bottom: 3rem;
-}
-
-.home-section h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-}
-
-.view-all {
-  display: inline-block;
-  margin-top: 1rem;
-  font-weight: 500;
-  color: var(--color-text-link);
-  text-decoration: none;
-}
-
-/* Feed Grid for Projects and Notes */
-.feed-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.feed-item {
-  background-color: var(--color-bg-sub);
-  border-radius: 8px;
-  padding: 1.5rem;
-  transition: box-shadow 0.3s ease;
+.search-input {
+  width: 100%;
+  padding: 0.75rem;
   border: 1px solid var(--color-border-light);
+  border-radius: 4px;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  font-size: 1rem;
 }
 
-.feed-item:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.feed-item h2, .feed-item h3 {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-.feed-item .read-more {
+/* Home Button */
+.home-btn {
   display: inline-block;
-  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
   color: var(--color-text-link);
   text-decoration: none;
-  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .feed-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .project-links {
-    flex-direction: column;
-  }
+/* Project Navigation */
+.project-navigation {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-light);
+  text-align: center;
+}
+
+.back-to-portfolio {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-bg-main);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--color-text-link);
 }

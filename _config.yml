@@ -51,7 +51,7 @@ defaults:
       layout: Post
       content-type: notes
   - scope:
-      path: "_projects/**/*.md"
+      path: "_projects"
     values:
       layout: Project
       content-type: project

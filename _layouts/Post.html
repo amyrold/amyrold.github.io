@@ -32,9 +32,8 @@
     <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet" media="all" class="default" />
     <link href="{{ site.baseurl }}/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
     <link href="{{ site.baseurl }}/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
-    <!-- Added portfolio CSS link -->
+    <!-- Portfolio CSS link -->
     <link href="{{ site.baseurl }}/assets/css/portfolio.css" rel="stylesheet" media="all" class="default" />
-    <link href="{{ site.baseurl }}/assets/css/portfolio-fix.css" rel="stylesheet" media="all" class="default" />
 </head>
 
 <body>
@@ -132,6 +131,15 @@
                 {%- include Content.html -%}
                 {%- include Backlinks.html -%}
                 </div>
+            </div>
+            {%- endif -%}
+
+            <!--- Portfolio Page Layout -->
+            {%- if page.permalink == "/portfolio" -%}
+            <div class="column is-8-widescreen is-8-desktop is-8-tablet is-12-mobile">
+                <h5 class="meta-title"><a href="/">← Home</a></h5>
+                <div class="jumbo">{{page.title}}</div>
+                {%- include Content.html -%}
             </div>
             {%- endif -%}
 
