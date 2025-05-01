@@ -1,6 +1,7 @@
 ---
 layout: Post
 permalink: /about
+content-type: static
 title: About Me
 ---
 

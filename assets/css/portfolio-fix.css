@@ -1,0 +1,71 @@
+/* assets/css/portfolio-fix.css */
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+/* Portfolio Item */
+.portfolio-item {
+  background-color: var(--color-bg-sub);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid var(--color-border-light);
+}
+
+.portfolio-item:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.portfolio-item h2 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.portfolio-item .read-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--color-text-link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Ensure only one search bar is visible */
+.search-container {
+  margin-bottom: 2rem;
+}
+
+/* Fix home button */
+.home-btn {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-link);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* Project tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.project-tags .tag {
+  padding: 0.3rem 0.8rem;
+  background-color: var(--color-bg-main);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--color-text-main);
+}

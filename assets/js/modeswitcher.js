@@ -1,71 +1,50 @@
----
----
+// assets/js/modeswitcher.js
 
-/* 
-Copied from https://github.com/derekkedziora/jekyll-demo/blob/master/scripts/mode-switcher.js
-https://github.com/derekkedziora/jekyll-demo
-Creative Commons Attribution 4.0 International License
-*/
-
-let systemInitiatedDark = window.matchMedia("(prefers-color-scheme: dark)"); 
-let theme = sessionStorage.getItem('theme');
-
-const iconSun = "{{ site.baseurl }}/assets/img/sun.svg";
-const iconMoon = "{{ site.baseurl }}/assets/img/moon.svg";
-
-
-function changeIconImgSrc(src) {
-	document.getElementById("theme-toggle-img").src = src;
-	document.getElementById("theme-toggle-img--mobile").src = src;
+// Function to toggle between dark and light modes
+function modeSwitcher() {
+  const currentTheme = localStorage.getItem('theme') || 
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  
+  // Toggle theme
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  // Update localStorage
+  localStorage.setItem('theme', newTheme);
+  
+  // Update document data attribute
+  document.documentElement.setAttribute('data-theme', newTheme);
+  
+  // Update theme toggle images
+  updateThemeImages(newTheme);
 }
 
-if (systemInitiatedDark.matches) {
-	changeIconImgSrc(iconMoon);
-} else {
-	changeIconImgSrc(iconSun);
-}
-
-function prefersColorTest(systemInitiatedDark) {
-  if (systemInitiatedDark.matches) {
-  	document.documentElement.setAttribute('data-theme', 'dark');		
-   	changeIconImgSrc(iconMoon);
-   	sessionStorage.setItem('theme', '');
+// Function to update theme images
+function updateThemeImages(theme) {
+  const themeToggleImg = document.getElementById('theme-toggle-img');
+  const themeToggleImgMobile = document.getElementById('theme-toggle-img--mobile');
+  
+  if (theme === 'dark') {
+    if (themeToggleImg) themeToggleImg.src = '/assets/img/moon.svg';
+    if (themeToggleImgMobile) themeToggleImgMobile.src = '/assets/img/moon.svg';
   } else {
-  	document.documentElement.setAttribute('data-theme', 'light');
-    changeIconImgSrc(iconSun);
-    sessionStorage.setItem('theme', '');
+    if (themeToggleImg) themeToggleImg.src = '/assets/img/sun.svg';
+    if (themeToggleImgMobile) themeToggleImgMobile.src = '/assets/img/sun.svg';
   }
 }
-systemInitiatedDark.addListener(prefersColorTest);
 
-
-function modeSwitcher() {
-	let theme = sessionStorage.getItem('theme');
-	if (theme === "dark") {
-		document.documentElement.setAttribute('data-theme', 'light');
-		sessionStorage.setItem('theme', 'light');
-		changeIconImgSrc(iconSun);
-	}	else if (theme === "light") {
-		document.documentElement.setAttribute('data-theme', 'dark');
-		sessionStorage.setItem('theme', 'dark');
-		changeIconImgSrc(iconMoon);
-	} else if (systemInitiatedDark.matches) {	
-		document.documentElement.setAttribute('data-theme', 'light');
-		sessionStorage.setItem('theme', 'light');
-		changeIconImgSrc(iconSun);
-	} else {
-		document.documentElement.setAttribute('data-theme', 'dark');
-		sessionStorage.setItem('theme', 'dark');
-		changeIconImgSrc(iconMoon);
-	}
-}
-
-if (theme === "dark") {
-	document.documentElement.setAttribute('data-theme', 'dark');
-	sessionStorage.setItem('theme', 'dark');
-	changeIconImgSrc(iconMoon);
-} else if (theme === "light") {
-	document.documentElement.setAttribute('data-theme', 'light');
-	sessionStorage.setItem('theme', 'light');
-	changeIconImgSrc(iconSun);
-}
+// Apply theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const savedTheme = localStorage.getItem('theme');
+  
+  // If we have a saved theme preference
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeImages(savedTheme);
+  } else {
+    // Otherwise use system preference
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', systemTheme);
+    localStorage.setItem('theme', systemTheme);
+    updateThemeImages(systemTheme);
+  }
+});
