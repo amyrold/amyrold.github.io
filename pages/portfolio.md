@@ -18,7 +18,7 @@ A collection of my projects with detailed descriptions and GitHub integration.
 {% for project in featured_projects %}
   <div class="portfolio-item" data-searchable="{{ project.title }} {{ project.tags | join: ' ' }} {{ project.content | strip_html }}">
     <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-    <p>{{ project.excerpt | strip_html | truncate: 120 }}</p>
+    <p>{{ project.content | strip_html | truncate: 150 }}</p>
     
     {% if project.tags %}
     <div class="project-tags">
@@ -78,3 +78,20 @@ A collection of my projects with detailed descriptions and GitHub integration.
     });
   });
 </script>
+
+<!-- Debug Info -->
+<div style="border: 1px solid #ccc; padding: 10px; margin: 20px 0; background: #f8f8f8;">
+  <h3>Debug: Featured Projects</h3>
+  <ul>
+  {% assign featured_projects = site.projects | where: "featured", true %}
+  {% for project in featured_projects %}
+    <li>
+      <strong>Title:</strong> {{ project.title }}<br>
+      <strong>Featured:</strong> {{ project.featured }}<br>
+      <strong>URL:</strong> {{ project.url }}<br>
+      <strong>Content Length:</strong> {{ project.content | size }} characters<br>
+      <strong>Excerpt Length:</strong> {{ project.excerpt | size }} characters
+    </li>
+  {% endfor %}
+  </ul>
+</div>
