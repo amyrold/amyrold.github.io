@@ -2,7 +2,6 @@
 layout: Post
 permalink: /portfolio
 title: Portfolio
-feedformat: card
 ---
 
 A collection of my projects with detailed descriptions and GitHub integration.
@@ -78,20 +77,3 @@ A collection of my projects with detailed descriptions and GitHub integration.
     });
   });
 </script>
-
-<!-- Debug Info -->
-<div style="border: 1px solid #ccc; padding: 10px; margin: 20px 0; background: #f8f8f8;">
-  <h3>Debug: Featured Projects</h3>
-  <ul>
-  {% assign featured_projects = site.projects | where: "featured", true %}
-  {% for project in featured_projects %}
-    <li>
-      <strong>Title:</strong> {{ project.title }}<br>
-      <strong>Featured:</strong> {{ project.featured }}<br>
-      <strong>URL:</strong> {{ project.url }}<br>
-      <strong>Content Length:</strong> {{ project.content | size }} characters<br>
-      <strong>Excerpt Length:</strong> {{ project.excerpt | size }} characters
-    </li>
-  {% endfor %}
-  </ul>
-</div>
