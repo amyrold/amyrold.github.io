@@ -2,11 +2,8 @@
 layout: Post
 permalink: /portfolio
 title: Portfolio
+feedformat: card
 ---
-
-<a href="/" class="home-btn">← HOME</a>
-
-# Portfolio
 
 A collection of my projects with detailed descriptions and GitHub integration.
 
