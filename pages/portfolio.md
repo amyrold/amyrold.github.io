@@ -2,9 +2,17 @@
 layout: Post
 permalink: /portfolio
 title: Portfolio
+feedformat: card
 ---
 
 A collection of my projects with detailed descriptions and GitHub integration.
+
+<style>
+/* Hide the default search bar and notes feed */
+#search-input, #search-results, .notelist-feed {
+  display: none !important;
+}
+</style>
 
 <div class="search-container">
   <input type="text" id="portfolio-search" class="search-input" placeholder="Search projects.." />
