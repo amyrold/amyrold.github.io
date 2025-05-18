@@ -41,7 +41,7 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     //Component.Explorer(),
-    Component.TableOfContents(),
+    Component.DesktopOnly(Component.TableOfContents()),
   ],
   right: [
     //Component.DesktopOnly(Component.TableOfContents()),
@@ -67,7 +67,7 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     //Component.Explorer(),
-    Component.TableOfContents(),
+    Component.DesktopOnly(Component.TableOfContents()),
   ],
   right: [],
 }
