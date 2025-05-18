@@ -38,4 +38,4 @@ I find balance in life by spending quality time outdoors. You'll often find me o
 
 Feel free to reach out to meat amyrold@me.com I'd be more than happy to discuss potential collaborations or just to chat about bioinformatics and computational biology:
 
-_This website serves as both my professional portfolio and a space where I share my learning journey. Feel free to explore my [[Portfolio/|portfolio]] and [[content/Digital Garden/index|digital garden]]_
+_This website serves as both my professional portfolio and a space where I share my learning journey. Feel free to explore my [[Portfolio/|portfolio]] and [[Digital Garden/|digital garden]]_
