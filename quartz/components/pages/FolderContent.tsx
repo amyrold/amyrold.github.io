@@ -114,13 +114,39 @@ export default ((opts?: Partial<FolderContentOptions>) => {
             </p>
           )}
           <div>
-            <PageList {...listProps} />
+            {allPagesInFolder.map((page) => (
+              <div key={page.slug} className="folder-page-item">
+                <a href={`/${page.slug}`} className="folder-page-link">
+                  {page.frontmatter.title}
+                </a>
+                {page.description && (
+                  <p className="folder-page-description">{page.description}</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
     )
   }
 
-  FolderContent.css = concatenateResources(style, PageList.css)
+  FolderContent.css = concatenateResources(
+  style, 
+  PageList.css,
+  `
+  .folder-page-item {
+    margin-bottom: 1rem;
+  }
+  .folder-page-link {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  .folder-page-description {
+    margin-top: 0.3rem;
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+  `
+)
   return FolderContent
 }) satisfies QuartzComponentConstructor
