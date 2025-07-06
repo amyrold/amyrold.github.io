@@ -1,3 +1,187 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+/* Reduce top dead space by removing default margins and padding */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#quartz-root {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+#quartz-body {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.page {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Remove top spacing from sidebars */
+.left.sidebar, .right.sidebar {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Remove top spacing from center content */
+.center {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Remove spacing from page header and its contents */
+.center .page-header {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.center .article-title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.center .content-meta {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure article content aligns with sidebars */
+.center article {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Remove the main Explorer section title and its toggle */
+.explorer h1,
+.explorer h2,
+.explorer h3,
+.explorer .explorer-title,
+.explorer > h1,
+.explorer > h2,
+.explorer > h3 {
+  display: none !important;
+}
+
+/* Remove the main Explorer section collapse button/toggle */
+.explorer > button,
+.explorer > .fold,
+.explorer > .collapse-icon,
+.explorer > .section-toggle,
+.explorer-header button,
+.explorer-header .fold {
+  display: none !important;
+}
+
+/* Remove any top-level toggle that controls the entire explorer */
+.explorer-container > .fold,
+.explorer-container > button:first-child,
+.left .explorer:first-child > button {
+  display: none !important;
+}
+
+/* Ensure the explorer content is always visible */
+.explorer-content,
+.explorer > ul,
+.explorer > .folder-container {
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Remove any margin/padding that was compensating for the title */
+.explorer {
+  padding-top: 0 !important;
+}
+
+.explorer > ul:first-child,
+.explorer > .folder-container:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Keep the Table of Contents title but remove toggle functionality */
+.toc .toc-header {
+  pointer-events: none !important;
+  cursor: default !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+/* Hide only the fold/toggle icon, keep the title */
+.toc .toc-header .fold {
+  display: none !important;
+}
+
+/* Ensure TOC content is always visible */
+.toc .toc-content {
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Make sure the h3 title in TOC header is visible and styled properly */
+.toc .toc-header h3 {
+  display: block !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+/* Reposition folder toggles to appear after folder names */
+.explorer .folder-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+/* Move the folder icon (toggle) to the end */
+.explorer .folder-container .folder-icon {
+  order: 2 !important;
+  margin-left: 0.5rem !important;
+  margin-right: 0 !important;
+  cursor: pointer !important;
+}
+
+/* Keep the folder title first */
+.explorer .folder-container > div {
+  order: 1 !important;
+  flex: 1 !important;
+}
+
+/* Make sure the folder title link displays properly */
+.explorer .folder-title {
+  display: inline-block !important;
+}
+
+/* Adjust spacing between sidebar elements */
+.left.sidebar .page-title {
+  margin-bottom: 0.5rem !important; /* Reduce space after page title */
+}
+
+.left.sidebar .spacer.mobile-only {
+  display: none !important; /* Remove mobile spacer completely on desktop */
+}
+
+/* Reduce spacing around the flex container with search/darkmode/reader buttons */
+.left.sidebar > div[style*="display: flex"] {
+  margin-bottom: 0.75rem !important; /* Reduce space after button bar */
+  margin-top: 0 !important; /* Remove space before button bar */
+}
+
+/* Reduce top margin of explorer */
+.left.sidebar .explorer {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Optional: Fine-tune overall sidebar spacing */
+.left.sidebar {
+  gap: 0.5rem !important; /* If sidebar uses gap, reduce it */
+}
+
+#quartz-body {
+  padding-top: 0.5rem !important;
+}
